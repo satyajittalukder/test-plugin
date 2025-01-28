@@ -1,0 +1,15 @@
+{
+    "name": "satyajit/test-plugin",
+    "autoload": {
+        "psr-4": {
+            "UserTestPlugin\\": "Includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "satyajittalukder",
+            "email": "dorhubs@gmail.com"
+        }
+    ],
+    "require": {}
+}
