@@ -23,6 +23,7 @@ class ComposerStaticInit21308bc21b225e85ab7d5c98250ee81d
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'UserTestPlugin\\Admin\\AdminMenu' => __DIR__ . '/../..' . '/Includes/Admin/AdminMenu.php',
+        'UserTestPlugin\\Assets' => __DIR__ . '/../..' . '/Includes/Assets.php',
         'UserTestPlugin\\Bootstrap' => __DIR__ . '/../..' . '/Includes/Bootstrap.php',
         'UserTestPlugin\\Database\\UserDatabase' => __DIR__ . '/../..' . '/Includes/Database/UserDatabase.php',
         'UserTestPlugin\\Traits\\Singleton' => __DIR__ . '/../..' . '/Includes/Traits/Singleton.php',

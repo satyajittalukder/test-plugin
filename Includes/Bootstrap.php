@@ -6,36 +6,33 @@ use UserTestPlugin\Traits\Singleton;
 use UserTestPlugin\Admin\AdminMenu;
 use UserTestPlugin\Database\UserDatabase;
 use UserTestPlugin\Assets;
+use UserTestPlugin\AjaxHandler;
 
-class Bootstrap
-{
+class Bootstrap {
+    use Singleton;
 
-  use Singleton;
+    private function __construct() {
+        $this->init_hooks();
+    }
 
-  private function __construct()
-  {
-    // error_log('Bootstrap is working perfectly');
-    // $this->load_ajax_classes();
-    // $this->load_admin_classes();
+    private function init_hooks() {
+        UserDatabase::instance();
 
-    // Load necessary classes
-    UserDatabase::instance();
-    AdminMenu::instance();
-    Assets::instance();
-  }
+        if (is_admin()) {
+            $this->init_admin();
+        }
+        register_activation_hook(USERTEST_PLUGIN_FILE, [__CLASS__, 'onActivate']);
+    }
 
-  // private function load_ajax_classes()
-  // {
-  //   error_log('Loader for ajax');
-  // }
+    private function init_admin() {
+        Assets::instance();        
+        AdminMenu::instance();     
+        AjaxHandler::instance();   
+    }
 
-  // private function load_admin_classes()
-  // {
-  //   error_log('Loader for admin class');
-  // }
-  public static function onActivate()
-  {
-      UserDatabase::instance()->createTable();
-  }
-  
+    public static function onActivate() {
+        UserDatabase::instance()->createTable();
+        
+        flush_rewrite_rules();
+    }
 }

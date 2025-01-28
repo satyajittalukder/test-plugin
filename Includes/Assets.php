@@ -11,7 +11,6 @@ if (! defined('ABSPATH')) {
 
 class Assets
 {
-  // If this file is called directly, abort.
 
   use Singleton;
 
@@ -19,7 +18,6 @@ class Assets
   private function __construct()
   {
     add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
-    // add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_styles'));
   }
 
   private $setting_page_hook = 'user-test-plugin';
@@ -31,15 +29,11 @@ class Assets
    */
   public function admin_enqueue_scripts($hook)
   {
-    error_log($hook);
     if ('toplevel_page_' . $this->setting_page_hook === $hook) {
-      $settings_file = require USERTEST_PLUGIN_DIR_PATH.'react-src/build/index.asset.php';
-      $settings_url = USERTEST_PLUGIN_DIR_URL."react-src/build/index.js";
+      $settings_file = require USERTEST_PLUGIN_DIR_PATH.'react-admin/build/index.asset.php';
+      $settings_url = USERTEST_PLUGIN_DIR_URL."react-admin/build/index.js";
 
-      // error_log( $settings_file);
-      error_log($settings_url);
 
-      error_log("loaded assets");
       wp_enqueue_script(
         'usertest-settings-script',
         $settings_url,

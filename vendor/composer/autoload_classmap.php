@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'UserTestPlugin\\Admin\\AdminMenu' => $baseDir . '/Includes/Admin/AdminMenu.php',
+    'UserTestPlugin\\Assets' => $baseDir . '/Includes/Assets.php',
     'UserTestPlugin\\Bootstrap' => $baseDir . '/Includes/Bootstrap.php',
     'UserTestPlugin\\Database\\UserDatabase' => $baseDir . '/Includes/Database/UserDatabase.php',
     'UserTestPlugin\\Traits\\Singleton' => $baseDir . '/Includes/Traits/Singleton.php',
